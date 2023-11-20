@@ -1,7 +1,7 @@
 "use client"
 import axios from "axios"
 import { useEffect, useState } from "react"
-import Card from "./components/Card"
+import CharacterCard from "./components/CharacterCard"
 import Navbar from "./components/Navbar"
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
       <div className="flex justify-center items-center mt-auto">
           <div className="grid grid-cols-4 gap-4">
             {characters.map((character,index)=>{
-              return <Card 
+              return <CharacterCard
                 key={index}
                 name = {character.name}
                 status = {character.status}
