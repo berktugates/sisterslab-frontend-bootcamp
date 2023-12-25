@@ -33,11 +33,22 @@ export default function Home() {
   ]);
   const [showComponents, setShowComponents] = useState([]);
   const [totalCost, setTotalCost] = useState(0);
+
   let addIngredient = (componentName, ingredientPrice) => {
-    setShowComponents([...showComponents, componentName]);
-    console.log(typeof ingredientPrice);
+    setShowComponents([componentName, ...showComponents]);
     setTotalCost(totalCost + ingredientPrice);
   };
+
+  let removeIngredient = (componentName, ingredientPrice) => {
+    const index = showComponents.indexOf(componentName);
+    if (index > -1) {
+      let newComponents = [...showComponents];
+      newComponents.splice(index, 1);
+      setShowComponents(newComponents);
+      setTotalCost(totalCost - ingredientPrice);
+    }
+  };
+
   return (
     <>
       <div className="h-screen flex flex-col justify-center items-center">
@@ -47,6 +58,7 @@ export default function Home() {
             <IngredientsList
               ingredients={ingredients}
               addIngredient={addIngredient}
+              removeIngredient={removeIngredient}
             />
           </div>
           <div id="breads" className="w-1/2">
