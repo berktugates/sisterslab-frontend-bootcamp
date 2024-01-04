@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import Posts from "./components/Posts";
+import Posts from "./components/Home Components/Posts";
 import axios from "axios";
 import Navbar from "./components/Navbar";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const baseUrl = "https://dummyjson.com/posts";
